@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Queue Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+    h1 { color: #333; }
+    button { margin: 10px; padding: 10px 15px; border: none; background: #0077b6; color: white; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #005f87; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <h1>Smart Queue Management System</h1>
+  <button onclick="generateToken()">Generate Token</button>
+  <button onclick="viewQueue()">View Queue</button>
+  <button onclick="serveNext()">Serve Next</button>
+  <div id="output"></div>
+
+  <script>
+    if (sessionStorage.getItem('sqmsLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+
+    async function requestJson(url, options = {}) {
+      const response = await fetch(url, {
+        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+        ...options
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Request failed');
+      }
+      return data;
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[char]));
+    }
+
+    async function generateToken() {
+      const name = prompt("Enter user name:");
+      const service = prompt("Enter service type:");
+      if (name && service) {
+        try {
+          const data = await requestJson('/api/tokens', {
+            method: 'POST',
+            body: JSON.stringify({ name, service })
+          });
+          document.getElementById('output').innerHTML =
+            `Token ${data.token.id} generated for ${escapeHtml(data.token.name)} (${escapeHtml(data.token.service)})`;
+        } catch (error) {
+          document.getElementById('output').innerHTML = error.message;
+        }
+      }
+    }
+
+    async function viewQueue() {
+      try {
+        const data = await requestJson('/api/tokens');
+        if (data.tokens.length === 0) {
+          document.getElementById('output').innerHTML = "Queue is empty.";
+          return;
+        }
+        let html = "<b>Current Queue:</b><br>";
+        data.tokens.forEach(t => {
+          html += `Token ${t.id} - ${escapeHtml(t.name)} (${escapeHtml(t.service)})<br>`;
+        });
+        document.getElementById('output').innerHTML = html;
+      } catch (error) {
+        document.getElementById('output').innerHTML = error.message;
+      }
+    }
+
+    async function serveNext() {
+      try {
+        const data = await requestJson('/api/tokens/serve-next', { method: 'POST' });
+        const t = data.token;
+        document.getElementById('output').innerHTML = `Serving Token ${t.id} (${escapeHtml(t.name)})`;
+      } catch (error) {
+        document.getElementById('output').innerHTML = error.message;
+      }
+    }
+  </script>
+</body>
+</html>

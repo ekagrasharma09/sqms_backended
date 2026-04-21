@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Queue Management System Project Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 22mm 18mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111;
+      background: #fff;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .page {
+      min-height: 252mm;
+      page-break-after: always;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .cover {
+      border: 2px solid #111;
+      min-height: 252mm;
+      padding: 24mm 18mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .college {
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .project-title {
+      margin: 34mm 0 18mm;
+      font-size: 26px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: underline;
+      line-height: 1.35;
+    }
+
+    .subject {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 22mm;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .details-grid h3 {
+      margin: 0 0 10px;
+      text-decoration: underline;
+      font-size: 17px;
+    }
+
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin: 0 0 22px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 24px 0 10px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin: 0 0 11px;
+      text-align: justify;
+    }
+
+    .signature {
+      margin-top: 42mm;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .toc {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+
+    .toc th,
+    .toc td {
+      border: 1px solid #111;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .toc th {
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 18px;
+    }
+
+    th,
+    td {
+      border: 1px solid #111;
+      padding: 7px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f0f0;
+      text-align: left;
+    }
+
+    pre {
+      border: 1px solid #999;
+      padding: 10px;
+      background: #f8f8f8;
+      white-space: pre-wrap;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    ul,
+    ol {
+      margin-top: 6px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .diagram {
+      border: 1px solid #111;
+      padding: 14px;
+      text-align: center;
+      font-family: Consolas, "Courier New", monospace;
+      margin: 12px 0 18px;
+    }
+
+    .screenshot {
+      width: 100%;
+      border: 1px solid #777;
+      margin: 8px 0 18px;
+    }
+
+    .small-note {
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="center">
+      <div class="college">Poornima Institute of Engineering and Technology, Jaipur</div>
+      <div class="subtitle">Department of CS (AI & DS)</div>
+      <div class="subtitle">Academic Session: 2025-26</div>
+      <div class="project-title">Smart Queue<br>Management System</div>
+      <div class="subject">DBMS Project Report</div>
+    </div>
+
+    <div class="details-grid">
+      <div>
+        <h3>Submitted By</h3>
+        <p><strong>Name:</strong> Ekagra Sharma</p>
+        <p><strong>Roll No.:</strong> PIET24CA015</p>
+        <p><strong>Course:</strong> B. Tech CS(AI)</p>
+        <p><strong>Semester:</strong> 4th Sem, 2nd Year</p>
+        <p><strong>Section:</strong> F1</p>
+      </div>
+      <div>
+        <h3>Submitted To</h3>
+        <p><strong>Faculty:</strong> Dr. Buddhesh Kanwar</p>
+        <p><strong>Subject:</strong> DBMS</p>
+        <p><strong>Department:</strong> CS (AI & DS)</p>
+      </div>
+    </div>
+
+    <div class="center">
+      <strong>Project based on Java Backend and MySQL Database</strong>
+    </div>
+  </section>
+
+  <section class="page">
+    <h1>Certificate</h1>
+    <p>
+      This is to certify that <strong>Ekagra Sharma</strong>, Roll No.
+      <strong>PIET24CA015</strong>, student of <strong>B. Tech CS(AI)</strong>,
+      4th Semester, has successfully completed the project titled
+      <strong>"Smart Queue Management System"</strong> as part of the
+      <strong>DBMS</strong> practical work during the academic session
+      <strong>2025-26</strong>.
+    </p>
+    <p>
+      The project demonstrates the use of a Java backend connected with a MySQL
+      database using JDBC. It includes database creation, table creation,
+      insertion, selection, and update operations.
+    </p>
+    <p>
+      The work has been carried out under the guidance of
+      <strong>Dr. Buddhesh Kanwar</strong>, Department of CS (AI & DS),
+      Poornima Institute of Engineering and Technology, Jaipur.
+    </p>
+    <div class="signature">
+      <span>Student Signature</span>
+      <span>Faculty Signature</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h1>Acknowledgement</h1>
+    <p>
+      I would like to express my sincere gratitude to my faculty
+      <strong>Dr. Buddhesh Kanwar</strong> for providing guidance and support
+      during the development of this project.
+    </p>
+    <p>
+      I am thankful to the Department of CS (AI & DS), Poornima Institute of
+      Engineering and Technology, Jaipur, for giving me the opportunity to work
+      on this DBMS project.
+    </p>
+    <p>
+      This project helped me understand the practical implementation of database
+      management concepts, Java backend development, JDBC connectivity, and SQL
+      operations such as insertion, selection, and updating records.
+    </p>
+    <div class="signature">
+      <span></span>
+      <span>Ekagra Sharma</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h1>Index</h1>
+    <table class="toc">
+      <tr><th>S. No.</th><th>Topic</th><th>Page No.</th></tr>
+      <tr><td>1</td><td>Introduction</td><td>5</td></tr>
+      <tr><td>2</td><td>Objectives</td><td>5</td></tr>
+      <tr><td>3</td><td>Technologies Used</td><td>6</td></tr>
+      <tr><td>4</td><td>System Architecture</td><td>6</td></tr>
+      <tr><td>5</td><td>Project Modules</td><td>7</td></tr>
+      <tr><td>6</td><td>Database Design</td><td>8</td></tr>
+      <tr><td>7</td><td>SQL Operations Used</td><td>9</td></tr>
+      <tr><td>8</td><td>API Routes</td><td>10</td></tr>
+      <tr><td>9</td><td>Working Process</td><td>10</td></tr>
+      <tr><td>10</td><td>Screenshots</td><td>11</td></tr>
+      <tr><td>11</td><td>Advantages, Limitations and Future Scope</td><td>13</td></tr>
+      <tr><td>12</td><td>Conclusion</td><td>14</td></tr>
+    </table>
+  </section>
+
+  <section class="page">
+    <h1>Smart Queue Management System</h1>
+    <h2>1. Introduction</h2>
+    <p>
+      The Smart Queue Management System is a web-based application designed to
+      manage service queues digitally. In places such as banks, hospitals,
+      college offices, and service centers, people often wait in queues for
+      different services. This project provides a token-based queue system where
+      an admin can generate a token, view the current queue, and serve the next
+      token.
+    </p>
+    <p>
+      The project uses HTML, CSS, and JavaScript for the frontend, Java for the
+      backend server, and MySQL as the SQL database. The Java backend
+      communicates with MySQL using JDBC.
+    </p>
+
+    <h2>2. Objectives</h2>
+    <ul>
+      <li>To create a simple web-based queue management system.</li>
+      <li>To connect a frontend application with a backend server.</li>
+      <li>To store queue data permanently in a SQL database.</li>
+      <li>To demonstrate DBMS concepts such as tables, primary keys, insert, select, and update queries.</li>
+      <li>To manage queue tokens based on first-come, first-served order.</li>
+    </ul>
+  </section>
+
+  <section class="page">
+    <h1>Technology and Architecture</h1>
+    <h2>3. Technologies Used</h2>
+    <table>
+      <tr><th>Component</th><th>Technology</th></tr>
+      <tr><td>Frontend</td><td>HTML, CSS, JavaScript</td></tr>
+      <tr><td>Backend</td><td>Java</td></tr>
+      <tr><td>Database</td><td>MySQL</td></tr>
+      <tr><td>Database Connectivity</td><td>JDBC</td></tr>
+      <tr><td>Server</td><td>Java built-in HTTP server</td></tr>
+    </table>
+
+    <h2>4. System Architecture</h2>
+    <p>The project follows a three-layer architecture:</p>
+    <div class="diagram">
+      Frontend UI<br>
+      |<br>
+      | HTTP API requests<br>
+      v<br>
+      Java Backend Server<br>
+      |<br>
+      | JDBC SQL queries<br>
+      v<br>
+      MySQL Database
+    </div>
+    <p>
+      The frontend sends requests to the Java backend. The backend processes the
+      request, performs SQL operations using JDBC, and sends a response back to
+      the frontend.
+    </p>
+  </section>
+
+  <section class="page">
+    <h1>Project Modules</h1>
+    <h2>5. Project Modules</h2>
+    <h3>5.1 Login Module</h3>
+    <p>
+      The login module allows an admin user to access the queue management page.
+      The frontend sends the username and password to the Java backend using the
+      <strong>/api/login</strong> API route. The backend checks the user record
+      from the <strong>users</strong> table.
+    </p>
+
+    <h3>5.2 Token Generation Module</h3>
+    <p>
+      This module allows the admin to generate a new token by entering a name
+      and service type. The backend inserts the token details into the
+      <strong>tokens</strong> table with the default status <strong>waiting</strong>.
+    </p>
+
+    <h3>5.3 View Queue Module</h3>
+    <p>
+      This module displays all waiting tokens from the database. The backend
+      fetches tokens using a SELECT query and returns them to the frontend.
+    </p>
+
+    <h3>5.4 Serve Next Token Module</h3>
+    <p>
+      This module serves the first waiting token in the queue. The backend finds
+      the earliest waiting token and updates its status from waiting to served.
+    </p>
+  </section>
+
+  <section class="page">
+    <h1>Database Design</h1>
+    <h2>6. Database Design</h2>
+    <p>Database name: <strong>sqms_db</strong></p>
+
+    <h3>6.1 Users Table</h3>
+    <pre>CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(128) NOT NULL
+);</pre>
+    <table>
+      <tr><th>Column</th><th>Description</th></tr>
+      <tr><td>id</td><td>Unique user ID</td></tr>
+      <tr><td>username</td><td>Admin username</td></tr>
+      <tr><td>password_hash</td><td>Hashed password value</td></tr>
+    </table>
+
+    <h3>6.2 Tokens Table</h3>
+    <pre>CREATE TABLE IF NOT EXISTS tokens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    service VARCHAR(100) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'waiting',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    served_at TIMESTAMP NULL
+);</pre>
+  </section>
+
+  <section class="page">
+    <h1>SQL Operations</h1>
+    <h2>7. SQL Operations Used</h2>
+    <h3>7.1 Create Database</h3>
+    <pre>CREATE DATABASE IF NOT EXISTS sqms_db;</pre>
+
+    <h3>7.2 Insert Token</h3>
+    <pre>INSERT INTO tokens (name, service) VALUES (?, ?);</pre>
+
+    <h3>7.3 View Waiting Queue</h3>
+    <pre>SELECT id, name, service, status, created_at, served_at
+FROM tokens
+WHERE status = 'waiting'
+ORDER BY id;</pre>
+
+    <h3>7.4 Serve Next Token</h3>
+    <pre>SELECT id
+FROM tokens
+WHERE status = 'waiting'
+ORDER BY id
+LIMIT 1 FOR UPDATE;</pre>
+
+    <pre>UPDATE tokens
+SET status = 'served', served_at = ?
+WHERE id = ?;</pre>
+  </section>
+
+  <section class="page">
+    <h1>API and Working</h1>
+    <h2>8. API Routes</h2>
+    <table>
+      <tr><th>API Route</th><th>Method</th><th>Purpose</th></tr>
+      <tr><td>/api/login</td><td>POST</td><td>Checks admin login</td></tr>
+      <tr><td>/api/tokens</td><td>GET</td><td>Displays waiting tokens</td></tr>
+      <tr><td>/api/tokens</td><td>POST</td><td>Creates a new token</td></tr>
+      <tr><td>/api/tokens/serve-next</td><td>POST</td><td>Serves the next waiting token</td></tr>
+    </table>
+
+    <h2>9. Working Process</h2>
+    <ol>
+      <li>The user opens the application in the browser.</li>
+      <li>The Java server serves the login page.</li>
+      <li>The admin enters login details.</li>
+      <li>The frontend sends the login details to the backend.</li>
+      <li>The backend checks the users table in MySQL.</li>
+      <li>After successful login, the user is redirected to the queue page.</li>
+      <li>When a token is generated, the backend inserts it into the tokens table.</li>
+      <li>When the queue is viewed, the backend fetches all waiting tokens from MySQL.</li>
+      <li>When the next token is served, the backend updates its status to served.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h1>Screenshots</h1>
+    <h2>10.1 Login Page</h2>
+    <img class="screenshot" src="screenshots/login-page.png" alt="Login Page">
+    <p class="small-note">Figure 1: Login page of Smart Queue Management System</p>
+  </section>
+
+  <section class="page">
+    <h1>Screenshots</h1>
+    <h2>10.2 Queue Page</h2>
+    <img class="screenshot" src="screenshots/queue-page.png" alt="Queue Page">
+    <p class="small-note">Figure 2: Queue page showing sample queue records</p>
+
+    <h2>10.3 MySQL Tables</h2>
+    <img class="screenshot" src="screenshots/mysql-tables.png" alt="MySQL Tables">
+    <p class="small-note">Figure 3: Database schema for users and tokens tables</p>
+  </section>
+
+  <section class="page">
+    <h1>Result and Conclusion</h1>
+    <h2>11. Advantages</h2>
+    <ul>
+      <li>Simple and easy to use.</li>
+      <li>Uses a real SQL database.</li>
+      <li>Stores queue data permanently.</li>
+      <li>Demonstrates backend and database connectivity.</li>
+      <li>Shows practical DBMS operations such as insert, select, and update.</li>
+    </ul>
+
+    <h2>12. Limitations</h2>
+    <ul>
+      <li>The project currently supports a simple admin login only.</li>
+      <li>It is intended for practical/demo use, not production deployment.</li>
+      <li>The frontend design is basic and can be improved further.</li>
+      <li>It requires MySQL and JDBC Connector/J to be installed before running.</li>
+    </ul>
+
+    <h2>13. Future Scope</h2>
+    <ul>
+      <li>Add multiple admin users.</li>
+      <li>Add customer login or registration.</li>
+      <li>Add token priority based on service type.</li>
+      <li>Add token search and service history.</li>
+      <li>Add dashboard charts for daily token statistics.</li>
+      <li>Add export report feature.</li>
+    </ul>
+
+    <h2>14. Conclusion</h2>
+    <p>
+      The Smart Queue Management System successfully demonstrates how a frontend
+      web application can communicate with a Java backend and store data in a
+      MySQL database. It uses important DBMS concepts such as table creation,
+      primary keys, insertion, selection, and updating records.
+    </p>
+    <p>
+      The project is suitable for demonstrating backend connectivity and SQL
+      database usage in a DBMS practical.
+    </p>
+  </section>
+</body>
+</html>

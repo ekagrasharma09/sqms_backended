@@ -1,0 +1,6 @@
+sqms.db
+__pycache__/
+*.pyc
+*.class
+mysql-connector-j-*.jar
+lib/*.jar
